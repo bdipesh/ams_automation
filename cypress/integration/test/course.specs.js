@@ -8,7 +8,7 @@ context('Login Page', () => {
     })
     // https://on.cypress.io/interacting-with-elements
 
-    it('The user logs in with valid credential and sees the Home page', () => {
+    it('The admin logs in and adds course with valid details', () => {
         //course.doLogin(courseData.email, courseData.password)
         course.addCourse(courseData.email, courseData.password, courseData.courseCode, courseData.courseName)
         cy.title().should("eq","Notice | Attendance Management System")
