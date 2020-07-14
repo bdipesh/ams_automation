@@ -20,5 +20,11 @@ context('Login Page', () => {
         cy.title().should("eq","Batch | AMS").and
         expect(batchData.updatedBatchName).to.exist
     })
+
+    it('The admin logs in and deletes batch', () => {
+        batch.deleteBatch(batchData.email, batchData.password, batchData.batchCode, batchData.batchName)
+        cy.title().should("eq","Batch | AMS").and
+        cy.get(batchData.updatedBatchName).should('not.exist')
+    })
 })
 // https://on.cypress.io/type
