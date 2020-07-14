@@ -2,5 +2,6 @@
   "email": "kiran@gmail.com",
   "password": "kiran",
   "courseCode": "testCourseCode",
-  "courseName": "testCourseName"
+  "courseName": "testCourseName",
+  "updatedCourseName": "testUpdatedCourseName"
 }
