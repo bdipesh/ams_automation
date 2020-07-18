@@ -12,18 +12,33 @@ context('Course CRUD', () => {
         //course.doLogin(courseData.email, courseData.password)
         course.addCourse(courseData.email, courseData.password, courseData.courseCode, courseData.courseName)
         cy.title().should("eq","Course List | AMS")
+        cy.get(".v-snack__content")
+            .then(function (message) {
+                const successMessage = message.text()
+                expect(successMessage).to.contains("Successfully added Course.")
+            })
+        expect(courseData.courseName).to.exist
     })
 
     it('The admin logs in and updates course with valid details', () => {
         course.updateCourse(courseData.email, courseData.password, courseData.courseName, courseData.updatedCourseName)
         cy.title().should("eq","Course List | AMS").and
-        //expect(courseData.courseName).not.to.exist.and
+        cy.get(".v-snack__content")
+            .then(function (message) {
+                const successMessage = message.text()
+                expect(successMessage).to.contains("Successfully updated Course.")
+            })
         expect(courseData.updatedCourseName).to.exist
     })
 
     it('The admin logs in and deletes course', () => {
         course.deleteCourse(courseData.email, courseData.password, courseData.courseCode, courseData.courseName)
         cy.title().should("eq","Course List | AMS").and
+        cy.get(".v-snack__content")
+            .then(function (message) {
+                const successMessage = message.text()
+                expect(successMessage).to.contains("Successfully removed Course.")
+            })
         cy.get(courseData.updatedCourseName).should('not.exist')
     })
 })
