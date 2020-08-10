@@ -5,6 +5,7 @@ class CourseTest {
         cy.get("#email").type(email)
         cy.get("#password").type(password)
         cy.get("#loginButton").click()
+        cy.get("#closeSnack").click()
         cy.contains('My Courses').click()
         cy.get("#addCourseButton").click()
         cy.get("#courseCode").type(courseCode)
@@ -17,6 +18,7 @@ class CourseTest {
         cy.get("#email").type(email)
         cy.get("#password").type(password)
         cy.get("#loginButton").click()
+        cy.get("#closeSnack").click()
         cy.contains('My Courses').click()
         cy.get($courseName).click()
         cy.get("#courseName").clear()
@@ -29,8 +31,10 @@ class CourseTest {
         cy.get("#email").type(email)
         cy.get("#password").type(password)
         cy.get("#loginButton").click()
+        cy.get("#closeSnack").click()
         cy.contains('My Courses').click()
         cy.get($courseCode).click()
+        cy.get("#courseDelete").click({force:true})
     }
 }
 

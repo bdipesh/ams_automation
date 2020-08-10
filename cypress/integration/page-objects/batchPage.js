@@ -5,6 +5,7 @@ class BatchTest {
         cy.get("#email").type(email)
         cy.get("#password").type(password)
         cy.get("#loginButton").click()
+        cy.get("#closeSnack").click()
         cy.contains('Batches').click()
         cy.get("#addBatchButton").click()
         cy.get("#batchCode").type(batchCode)
@@ -17,6 +18,7 @@ class BatchTest {
         cy.get("#email").type(email)
         cy.get("#password").type(password)
         cy.get("#loginButton").click()
+        cy.get("#closeSnack").click()
         cy.contains('Batches').click()
         cy.get($batchName).click()
         cy.get("#batchName").clear()
@@ -29,8 +31,10 @@ class BatchTest {
         cy.get("#email").type(email)
         cy.get("#password").type(password)
         cy.get("#loginButton").click()
+        cy.get("#closeSnack").click()
         cy.contains('Batches').click()
         cy.get($batchCode).click()
+        cy.get("#batchDelete").click({force:true})
     }
 }
 
