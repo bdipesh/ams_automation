@@ -13,7 +13,7 @@ When('I type in the required data', () => {
     cy.contains('Profile').click({force:true})
     cy.get("#updateProfile").click({force:true})
     cy.get("#userName").clear()
-    cy.get("#userName").type(name)
+    cy.get("#userName").type(updateUser.name)
 })
 
 When('I click on update button', () => {
